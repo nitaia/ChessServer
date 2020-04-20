@@ -21,8 +21,8 @@ public class ChessController {
     }
 
     @RequestMapping("/board")
-    public ResponseEntity<Board> getBoard() {
-        return new ResponseEntity<Board>(board, HttpStatus.OK);
+    public ResponseEntity<Piece[]> getBoard() {
+        return new ResponseEntity<Piece[]>(board.getAllPieces(), HttpStatus.OK);
     }
 
 }

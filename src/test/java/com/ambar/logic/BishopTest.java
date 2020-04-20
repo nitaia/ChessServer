@@ -10,8 +10,7 @@ public class BishopTest {
     @Test
     public void testCleanMoveUp() {
         Board board = new Board();
-        Bishop b = new Bishop();
-        b.square = new Square(2, 2);
+        Bishop b = new Bishop(Color.WHITE, new Square(2, 2));
         board.add(b);
         assertTrue(b.move(board, new Square(4, 4)));
     }
@@ -19,8 +18,7 @@ public class BishopTest {
     @Test
     public void testCleanMoveDown() {
         Board board = new Board();
-        Bishop b = new Bishop();
-        b.square = new Square(5, 5);
+        Bishop b = new Bishop(Color.WHITE, new Square(5, 5));
         board.add(b);
         assertTrue(b.move(board, new Square(7, 3)));
     }
@@ -28,8 +26,7 @@ public class BishopTest {
     @Test
     public void testMoveToCurrenPlace() {
         Board board = new Board();
-        Bishop b = new Bishop();
-        b.square = new Square(2, 2);
+        Bishop b = new Bishop(Color.WHITE, new Square(2, 2));
         board.add(b);
         assertFalse(b.move(board, new Square(2, 2)));
     }
@@ -37,8 +34,7 @@ public class BishopTest {
     @Test
     public void testInvalidMove() {
         Board board = new Board();
-        Bishop b = new Bishop();
-        b.square = new Square(2, 2);
+        Bishop b = new Bishop(Color.WHITE, new Square(2, 2));
         board.add(b);
         assertFalse(b.move(board, new Square(4, 5)));
     }
@@ -46,10 +42,8 @@ public class BishopTest {
     @Test
     public void testPieceInPath() {
         Board board = new Board();
-        Bishop b = new Bishop();
-        Pawn p = new Pawn();
-        p.square = new Square(4, 4);
-        b.square = new Square(2, 2);
+        Bishop b = new Bishop(Color.WHITE, new Square(2, 2));
+        Pawn p = new Pawn(Color.WHITE, new Square(4, 4));
         board.add(b);
         board.add(p);
         assertFalse(b.move(board, new Square(6, 6)));
@@ -58,10 +52,8 @@ public class BishopTest {
     @Test
     public void testPieceWithSameColorInDest() {
         Board board = new Board();
-        Bishop b = new Bishop();
-        Pawn p = new Pawn();
-        p.square = new Square(6, 6);
-        b.square = new Square(2, 2);
+        Bishop b = new Bishop(Color.WHITE, new Square(2, 2));
+        Pawn p = new Pawn(Color.WHITE, new Square(6, 6));
         p.color = Color.BLACK;
         b.color = Color.BLACK;
         board.add(b);
@@ -72,12 +64,10 @@ public class BishopTest {
     @Test
     public void testPieceWithDiffColorInDest() {
         Board board = new Board();
-        Bishop b = new Bishop();
-        Pawn p = new Pawn();
+        Bishop b = new Bishop(Color.WHITE, new Square(2, 2));
+        Pawn p = new Pawn(Color.WHITE, new Square(6, 6));
         p.square = new Square(6, 6);
         b.square = new Square(2, 2);
-        p.color = Color.BLACK;
-        b.color = Color.WHITE;
         board.add(b);
         board.add(p);
         assertTrue(b.move(board, new Square(6, 6)));

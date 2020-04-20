@@ -4,6 +4,7 @@ import lombok.Getter;
 
 import javax.lang.model.type.ArrayType;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Board {
@@ -13,7 +14,7 @@ public class Board {
 
     public Board()
     {
-
+        start();
     }
 
     public void start()
@@ -68,5 +69,23 @@ public class Board {
             board[destX][destY] = p;
             return true;
         }
+    }
+
+
+    public void add(Piece p) {
+        board [p.getSquare().getX()][p.getSquare().getY()] = p;
+    }
+
+    public Piece[] getAllPieces() {
+        List<Piece> list = new ArrayList();
+        for (int x = 0; x < BOARD_SIZE; x++) {
+            for (int y = 0; y < BOARD_SIZE; y++) {
+                Piece p = board[x][y];
+                if(p != null) {
+                    list.add(p);
+                }
+            }
+        }
+        return list.toArray(new Piece[] {});
     }
 }
