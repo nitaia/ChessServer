@@ -25,26 +25,26 @@ public class Board {
             board[i][1] = new Pawn(Color.WHITE, new Square(i, 1));
         }
         board[0][0] = new Rook(Color.WHITE, new Square(0, 0));
-        board[0][1] = new Knight(Color.WHITE, new Square(0, 1));
-        board[0][2] = new Bishop(Color.WHITE, new Square(0, 2));
-        board[0][3] = new Queen(Color.WHITE, new Square(0, 3));
-        board[0][4] = new King(Color.WHITE, new Square(0, 4));
-        board[0][5] = new Bishop(Color.WHITE, new Square(0, 5));
-        board[0][6] = new Knight(Color.WHITE, new Square(0, 6));
-        board[0][7] = new Rook(Color.WHITE, new Square(0, 7));
+        board[0][1] = new Knight(Color.WHITE, new Square(1, 0));
+        board[0][2] = new Bishop(Color.WHITE, new Square(2, 0));
+        board[0][3] = new Queen(Color.WHITE, new Square(3, 0));
+        board[0][4] = new King(Color.WHITE, new Square(4, 0));
+        board[0][5] = new Bishop(Color.WHITE, new Square(5, 0));
+        board[0][6] = new Knight(Color.WHITE, new Square(6, 0));
+        board[0][7] = new Rook(Color.WHITE, new Square(7, 0));
 
         //black
         for(int i = 0; i < 8; i++)
         {
-            board[i][6] = new Pawn(Color.BLACK, new Square(i, 1));
+            board[i][6] = new Pawn(Color.BLACK, new Square(i, 6));
         }
-        board[7][0] = new Rook(Color.BLACK, new Square(7, 0));
-        board[7][1] = new Knight(Color.BLACK, new Square(7, 1));
-        board[7][2] = new Bishop(Color.BLACK, new Square(7, 2));
-        board[7][3] = new Queen(Color.BLACK, new Square(7, 3));
-        board[7][4] = new King(Color.BLACK, new Square(7, 4));
-        board[7][5] = new Bishop(Color.BLACK, new Square(7, 5));
-        board[7][6] = new Knight(Color.BLACK, new Square(7, 6));
+        board[7][0] = new Rook(Color.BLACK, new Square(0, 7));
+        board[7][1] = new Knight(Color.BLACK, new Square(1, 7));
+        board[7][2] = new Bishop(Color.BLACK, new Square(2, 7));
+        board[7][3] = new Queen(Color.BLACK, new Square(3, 7));
+        board[7][4] = new King(Color.BLACK, new Square(4, 7));
+        board[7][5] = new Bishop(Color.BLACK, new Square(5, 7));
+        board[7][6] = new Knight(Color.BLACK, new Square(6, 7));
         board[7][7] = new Rook(Color.BLACK, new Square(7, 7));
     }
 
@@ -76,12 +76,16 @@ public class Board {
         board [p.getSquare().getX()][p.getSquare().getY()] = p;
     }
 
-    public Piece[] getAllPieces() {
+    public Piece[] getAllPieces()
+    {
         List<Piece> list = new ArrayList();
-        for (int x = 0; x < BOARD_SIZE; x++) {
-            for (int y = 0; y < BOARD_SIZE; y++) {
+        for (int x = 0; x < BOARD_SIZE; x++)
+        {
+            for (int y = 0; y < BOARD_SIZE; y++)
+            {
                 Piece p = board[x][y];
-                if(p != null) {
+                if(p != null)
+                {
                     list.add(p);
                 }
             }
