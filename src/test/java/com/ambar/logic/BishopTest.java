@@ -65,7 +65,7 @@ public class BishopTest {
     public void testPieceWithDiffColorInDest() {
         Board board = new Board();
         Bishop b = new Bishop(Color.WHITE, new Square(2, 2));
-        Pawn p = new Pawn(Color.WHITE, new Square(6, 6));
+        Pawn p = new Pawn(Color.BLACK, new Square(6, 6));
         p.square = new Square(6, 6);
         b.square = new Square(2, 2);
         board.add(b);
