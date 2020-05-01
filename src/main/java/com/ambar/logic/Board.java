@@ -48,14 +48,16 @@ public class Board {
         board[7][7] = new Rook(Color.BLACK, new Square(7, 7));
     }
 
-    public boolean move(Square src, Square dest)
+    public boolean checkMove(Square src, Square dest)
     {
         int srcX = src.getX();
         int srcY = src.getY();
         int destX = dest.getX();
         int destY = dest.getY();
+        Error err = Error.NO_ERROR;
         Piece p = board[srcX][srcY];
-        if(board[srcX][srcY] == null)
+
+        if(p == null)
         {
             return false;
         }
@@ -65,12 +67,22 @@ public class Board {
         }
         else
         {
-            board[srcX][srcY] = null;
-            board[destX][destY] = p;
             return true;
         }
     }
 
+    public void move(Square src, Square dest)
+    {
+        int srcX = src.getX();
+        int srcY = src.getY();
+        int destX = dest.getX();
+        int destY = dest.getY();
+
+        Piece p = board[srcX][srcY];
+
+        board[srcX][srcY] = null;
+        board[destX][destY] = p;
+    }
 
     public void add(Piece p) {
         board [p.getSquare().getX()][p.getSquare().getY()] = p;
